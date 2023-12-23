@@ -1,19 +1,28 @@
-import Header from '@/components/Header';
+import Header from '@/components/Header'
+import HeroForm from '@/components/forms/HeroForm'
 import Image from 'next/image'
-import Link from 'next/link';
+import Link from 'next/link'
 
-export default function Home() {
+export default function Home () {
   return (
     <>
+      <main>
 
-    <main>
-      <Header />
-
-      <section>
-        
-      </section>
-    </main>
-   
+        <section className='pt-32'>
+          <div className='max-w-md mb-8'>
+            <h1 className='text-6xl font-bold'>
+              Your one link
+              <br />
+              for everything
+            </h1>
+            <h2 className='text-gray-500 text-xl mt-6'>
+              Share your links, social profiles, contact info and more on one
+              page
+            </h2>
+          </div>
+          <HeroForm user={null} />
+        </section>
+      </main>
     </>
   )
 }

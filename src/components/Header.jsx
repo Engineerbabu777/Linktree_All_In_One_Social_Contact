@@ -9,8 +9,8 @@ import Link from 'next/link';
 const Header = () => {
   return (
     <header className="bg-white border-b py-4">
-    <div className="max-w-4xl flex justify-between mx-auto px-6">
-      <div className="flex items-center gap-6">
+    <div className="max-w-4xl flex justify-between mx-auto">
+      <div className="flex items-center gap-6 px-4">
         <Link href={'/'} className="flex items-center gap-2 text-blue-500">
           {/* <FontAwesomeIcon icon={faLink} className="text-blue-500" /> */}
           <span className="font-bold">LinkList</span>
