@@ -3,7 +3,7 @@ import HeroForm from '@/components/forms/HeroForm'
 import { getServerSession } from 'next-auth'
 import Image from 'next/image'
 import Link from 'next/link'
-import { authOptions } from './api/auth/[...nextauth]/route'
+import { authOptions } from '../api/auth/[...nextauth]/route'
 
 export default async function Home () {
   const session = await getServerSession(authOptions)
