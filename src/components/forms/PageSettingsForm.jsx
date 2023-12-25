@@ -1,9 +1,9 @@
 'use client';
-// import {savePageSettings} from "@/actions/pageActions";
+import {savePageSettings} from "@/actions/pageActions";
 import SubmitButton from "@/components/buttons/SubmitButton";
 import RadioTogglers from "@/components/formItems/radioTogglers";
 import SectionBox from "@/components/layout/SectionBox";
-// import {upload} from "@/libs/upload";
+import {upload} from "@/libs/upload";
 import {faCloudArrowUp, faImage, faPalette, faSave, faUpload} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Image from "next/image";
@@ -17,21 +17,21 @@ export default function PageSettingsForm({page,user}) {
   const [bgImage, setBgImage] = useState(page?.bgImage);
   const [avatar, setAvatar] = useState(user?.image);
   async function saveBaseSettings(formData) {
-    // const result = await savePageSettings(formData);
-    // if (result) {
-    //   toast.success('Saved!');
-    // }
+    const result = await savePageSettings(formData);
+    if (result) {
+      toast.success('Saved!');
+    }
   }
 
   async function handleCoverImageChange(ev) {
-    // await upload(ev, link => {
-    //   setBgImage(link);
-    // });
+    await upload(ev, link => {
+      setBgImage(link);
+    },'bgImage');
   }
   async function handleAvatarImageChange(ev) {
-    // await upload(ev, link => {
-    //   setAvatar(link);
-    // });
+    await upload(ev, link => {
+      setAvatar(link);
+    },'avatar');
   }
   return (
     <div>

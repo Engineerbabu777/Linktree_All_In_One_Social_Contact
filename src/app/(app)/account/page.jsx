@@ -18,6 +18,7 @@ export default async function AccountPage ({ searchParams }) {
 
   let leanPage = cloneDeep(page?.toJSON())
   leanPage._id = leanPage?._id?.toString()
+  
   if (page) {
     return (
       <>
