@@ -1,11 +1,10 @@
 import toast from 'react-hot-toast'
 
-export async function upload (ev, callbackFn,name) {
+export async function upload (ev, callbackFn, name) {
   const file = ev.target.files?.[0]
 
-
   if (file) {
-    const url = process.env.URL;
+    const url = process.env.URL
 
     const formData = new FormData()
     formData.append('file', file)
@@ -20,13 +19,18 @@ export async function upload (ev, callbackFn,name) {
       }).then(response => {
         if (response.ok) {
           response.json().then(data => {
+            if (name === 'links') {
+              callbackFn(data.secure_url)
+              resolve(data.secure_url)
+              return
+            }
             fetch('/api/upload', {
               method: 'POST',
               body: JSON.stringify({ name: name, value: data.secure_url })
             })
               .then(result => {
-                  callbackFn(data.secure_url)
-                  resolve(data.secure_url)
+                callbackFn(data.secure_url)
+                resolve(data.secure_url)
               })
               .catch(err => console.log({ err }))
           })

@@ -7,6 +7,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import cloneDeep from 'clone-deep'
 import PageButtonsForm from '@/components/forms/PageButtonsForm'
+import PageLinksForm from '@/components/forms/PageLinksForm'
 
 export default async function AccountPage ({ searchParams }) {
   const session = await getServerSession(authOptions)
@@ -25,6 +26,7 @@ export default async function AccountPage ({ searchParams }) {
       <>
         <PageSettingsForm page={leanPage} user={session.user} />
         <PageButtonsForm page={leanPage} user={session.user} />
+        <PageLinksForm page={leanPage} user={session.user} />
       </>
     )
   }

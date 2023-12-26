@@ -28,17 +28,17 @@ export default function PageLinksForm({page,user}) {
     });
   }
   function handleUpload(ev, linkKeyForUpload) {
-    // upload(ev, uploadedImageUrl => {
-    //   setLinks(prevLinks => {
-    //     const newLinks = [...prevLinks];
-    //     newLinks.forEach((link,index) => {
-    //       if (link.key === linkKeyForUpload) {
-    //         link.icon = uploadedImageUrl;
-    //       }
-    //     });
-    //     return newLinks;
-    //   });
-    // });
+    upload(ev, uploadedImageUrl => {
+      setLinks(prevLinks => {
+        const newLinks = [...prevLinks];
+        newLinks.forEach((link,index) => {
+          if (link.key === linkKeyForUpload) {
+            link.icon = uploadedImageUrl;
+          }
+        });
+        return newLinks;
+      });
+    },'links');
   }
   function handleLinkChange(keyOfLinkToChange, prop, ev) {
     setLinks(prev => {
