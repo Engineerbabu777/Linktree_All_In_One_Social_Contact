@@ -19,7 +19,7 @@ export default async function AccountPage ({ searchParams }) {
   const page = await Page.findOne({ owner: session?.user?.email })
 
   let leanPage = cloneDeep(page?.toJSON())
-  leanPage._id = leanPage?._id?.toString()
+  // leanPage._id = leanPage?._id?.toString()
   
   if (page) {
     return (
