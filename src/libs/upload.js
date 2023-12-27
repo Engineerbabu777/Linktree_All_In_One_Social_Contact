@@ -4,7 +4,7 @@ export async function upload (ev, callbackFn, name) {
   const file = ev.target.files?.[0]
 
   if (file) {
-    const url = 'http://api.cloudinary.com/v1_1/djo2k58eq/image/upload'
+    const url = process.env.CLOUDINARY_URL
 
     const formData = new FormData()
     formData.append('file', file)
